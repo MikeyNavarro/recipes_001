@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS v5.2.0-beta1 -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="card mt-5">
+        <div class="card-header">
+          <h1 class="text-center">All Users</h1>
+        </div>
+        <div class="card-body">
+          <table class="table table-hover table-stripped text-center mt-3">
+            <thead>
+              <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Created At</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for user in users %}
+              <tr>
+                <td>{{user.first_name}} {{user.last_name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.created_at}}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <div class="dflex justify-content-end">
+            <a class="btn btn-primary" href="/user/create">Create User</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
