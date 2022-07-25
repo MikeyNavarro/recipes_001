@@ -1,4 +1,5 @@
 from crypt import methods
+from re import A
 from flask_app import app, render_template, redirect, request, bcrypt, session, flash
 from flask_app.models.user import User
 
@@ -22,3 +23,32 @@ def create_user():
 def save():
     users = User.save(request.form)
     return redirect("/users")
+
+
+@app.route('/user/edit/<int:id>')
+def edit(id):
+    data ={ 
+        "id":id
+    }
+    return render_template("edit_user.html",user=User.get_one(data))
+
+@app.route('/user/update',methods=['POST'])
+def update():
+    User.update(request.form)
+    print(request.form)
+    return redirect('/users')
+
+@app.route("/user/destroy/<int:id>")
+def delete(id):
+    data = {
+        "id":id
+    }
+    User.destroy(data)
+    return redirect('/users')
+
+@app.route("/user/show/<int:id>")
+def show(id):
+    data = {
+        "id":id
+    }
+    return render_template("show_user.html", user = User.get_one(data))

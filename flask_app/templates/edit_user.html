@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Edit User</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="mt-5 card">
+        <div class="card-header">
+          <h1 class="text-center">Edit {{user.first_name}}!</h1>
+        </div>
+        <div class="card-body">
+          <form action="/user/update" method="post">
+            <input type="hidden" name="id" value="{{user.id}}" />
+            <div class="mb-3">
+              <label for="first_name" class="form-label">First Name:</label>
+              <input
+                type="text"
+                name="first_name"
+                id="first_name"
+                class="form-control"
+                value="{{user.first_name}}"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="last_name" class="form-label">Last Name:</label>
+              <input
+                type="text"
+                name="last_name"
+                id="last_name"
+                class="form-control"
+                value="{{user.last_name}}"
+              />
+            </div>
+            <div class="mb-3">
+              <label for="email" class="form-label">Email:</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                class="form-control"
+                value="{{user.email}}"
+              />
+            </div>
+            <input type="submit" value="Update" class="btn btn-primary" />
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
